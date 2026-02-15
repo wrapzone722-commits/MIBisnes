@@ -1,54 +1,49 @@
 .add-car-form {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.25rem;
+  border-radius: 16px;
+  padding: 14px;
 }
 
 .add-car-form h2 {
-  margin: 0 0 1rem;
-  font-size: 1.1rem;
+  margin: 0 0 12px;
+  font-size: 0.95rem;
   font-weight: 600;
 }
 
 .add-car-form .row {
   display: grid;
-  grid-template-columns: 1fr 1fr minmax(120px, 1fr) auto;
-  gap: 0.75rem;
-  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
 
-@media (max-width: 640px) {
-  .add-car-form .row {
-    grid-template-columns: 1fr 1fr;
-  }
-  .add-car-form .row input:last-of-type,
-  .add-car-form .row button {
-    grid-column: span 2;
-  }
+.add-car-form .row input:nth-child(3),
+.add-car-form .row button {
+  grid-column: span 2;
 }
 
 .add-car-form input {
   background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 0.6rem 0.75rem;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 0.9rem;
 }
 
 .add-car-form input:focus {
   outline: none;
-  border-color: var(--accent);
+  border-color: var(--teal);
 }
 
-.add-car-form button {
-  background: var(--accent);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 0.6rem 1rem;
+.add-car-form button[type="submit"] {
+  background: var(--teal);
+  color: var(--bg);
+  border-radius: 10px;
+  padding: 10px 12px;
   font-weight: 600;
+  font-size: 0.9rem;
 }
 
-.add-car-form button:hover {
+.add-car-form button[type="submit"]:hover {
   background: var(--accent-hover);
 }

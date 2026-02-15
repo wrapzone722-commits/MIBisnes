@@ -1,0 +1,15 @@
+.profile-view {
+  padding-bottom: 24px;
+}
+
+.profile-view__title {
+  font-size: 1.1rem;
+  margin: 0 0 12px;
+  font-weight: 600;
+}
+
+.profile-view__meta {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}

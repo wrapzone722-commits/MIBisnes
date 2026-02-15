@@ -37,5 +37,5 @@
 }
 
 .expense-list__remove:hover {
-  color: var(--danger);
+  color: var(--expense);
 }

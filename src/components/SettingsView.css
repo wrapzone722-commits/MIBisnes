@@ -1,0 +1,15 @@
+.settings-view {
+  padding-bottom: 24px;
+}
+
+.settings-view__title {
+  font-size: 1.1rem;
+  margin: 0 0 12px;
+  font-weight: 600;
+}
+
+.settings-view__text {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: 0;
+}

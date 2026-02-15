@@ -11,20 +11,15 @@ export function Summary({ cars }) {
 
   return (
     <div className="summary">
-      <h2>Итого по всем авто</h2>
-      <div className="summary__grid">
-        <div className="summary__item summary__item--income">
-          <span className="summary__label">Доход</span>
-          <span className="summary__value">{formatMoney(totalIncome)} ₽</span>
-        </div>
-        <div className="summary__item summary__item--expense">
-          <span className="summary__label">Расход</span>
-          <span className="summary__value">{formatMoney(totalExpenses)} ₽</span>
-        </div>
-        <div className="summary__item summary__item--balance">
-          <span className="summary__label">Остаток</span>
-          <span className="summary__value">{formatMoney(totalBalance)} ₽</span>
-        </div>
+      <p className="summary__title">Итого по всем авто</p>
+      <p className="summary__main">{formatMoney(totalBalance)} ₽</p>
+      <div className="summary__details">
+        <span className="summary__item summary__item--income">
+          Доход: <strong>{formatMoney(totalIncome)} ₽</strong>
+        </span>
+        <span className="summary__item summary__item--expense">
+          Расход: <strong>{formatMoney(totalExpenses)} ₽</strong>
+        </span>
       </div>
     </div>
   )

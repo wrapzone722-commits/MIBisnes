@@ -1,36 +1,103 @@
 .app {
-  max-width: 900px;
+  max-width: 480px;
   margin: 0 auto;
-  padding: 1.5rem;
+  min-height: 100vh;
+  padding: 0 16px 16px;
 }
 
+/* Хедер в стиле референса */
 .header {
-  text-align: center;
-  margin-bottom: 2rem;
+  padding: 20px 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
-.header h1 {
-  font-size: 2rem;
+.header__left h1 {
+  font-size: 1.35rem;
   font-weight: 700;
   margin: 0;
-  letter-spacing: -0.02em;
   color: var(--text);
 }
 
-.tagline {
-  margin: 0.25rem 0 0;
+.header__left p {
+  margin: 4px 0 0;
+  font-size: 0.8rem;
   color: var(--text-muted);
-  font-size: 0.95rem;
 }
 
+.header__menu {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+.header__menu svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Основной контент */
 .main {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 16px;
 }
 
+/* Сетка карточек авто — 2 колонки */
 .cars {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+/* Табы под виджетом (All / и т.д.) */
+.tabs {
   display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  padding: 4px 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--surface);
+  transition: color 0.2s, background 0.2s;
+}
+
+.tab--active {
+  color: var(--bg);
+  background: var(--teal);
+}
+
+/* Экраны навигации */
+.screen {
+  display: none;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 16px;
+  animation: fade 0.2s ease;
+}
+
+.screen--active {
+  display: flex;
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

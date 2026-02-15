@@ -1,57 +1,37 @@
+/* Виджет в стиле погоды — одна карточка с итогами */
 .summary {
   background: var(--surface);
+  border-radius: 16px;
+  padding: 16px;
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.25rem;
 }
 
-.summary h2 {
-  margin: 0 0 1rem;
-  font-size: 1.1rem;
+.summary__title {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0 0 8px;
+}
+
+.summary__main {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0 0 12px;
+}
+
+.summary__details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.summary__details span strong {
+  color: var(--white);
   font-weight: 600;
 }
 
-.summary__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-
-@media (max-width: 500px) {
-  .summary__grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.summary__item {
-  padding: 0.75rem;
-  border-radius: 8px;
-  text-align: center;
-}
-
-.summary__item--income {
-  background: rgba(63, 185, 80, 0.15);
-  color: var(--income);
-}
-
-.summary__item--expense {
-  background: rgba(248, 81, 73, 0.15);
-  color: var(--expense);
-}
-
-.summary__item--balance {
-  background: rgba(88, 166, 255, 0.15);
-  color: var(--balance);
-}
-
-.summary__label {
-  display: block;
-  font-size: 0.85rem;
-  opacity: 0.9;
-  margin-bottom: 0.25rem;
-}
-
-.summary__value {
-  font-size: 1.25rem;
-  font-weight: 700;
-}
+.summary__item--income strong { color: var(--income); }
+.summary__item--expense strong { color: var(--expense); }
+.summary__item--balance strong { color: var(--balance); }

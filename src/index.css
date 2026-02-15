@@ -1,21 +1,26 @@
+/* Палитра по референсу: Smart Home Mobile App */
 :root {
-  --bg: #0f1419;
-  --surface: #1a2332;
-  --surface-hover: #243044;
-  --border: #2d3a4d;
-  --text: #e6edf3;
-  --text-muted: #8b9cb3;
-  --accent: #2ea043;
-  --accent-hover: #3fb950;
-  --danger: #f85149;
-  --danger-hover: #ff6b63;
-  --income: #3fb950;
-  --expense: #f85149;
-  --balance: #58a6ff;
-  font-family: 'Segoe UI', system-ui, sans-serif;
+  --teal: #46F0D2;
+  --bg: #131321;
+  --cream: #FBE2B4;
+  --white: #FFFFFF;
+  --surface: #1c1c2e;
+  --surface-hover: #252538;
+  --border: #2d2d44;
+  --text: #FFFFFF;
+  --text-muted: #a0a0b8;
+  --accent: #46F0D2;
+  --accent-hover: #5ff5de;
+  --income: #46F0D2;
+  --expense: #f87171;
+  --balance: #46F0D2;
+  --nav-height: 64px;
+  --safe-bottom: env(safe-area-inset-bottom, 0);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.5;
   color: var(--text);
   background: var(--bg);
+  -webkit-font-smoothing: antialiased;
 }
 
 * {
@@ -25,6 +30,8 @@
 body {
   margin: 0;
   min-height: 100vh;
+  min-height: 100dvh;
+  padding-bottom: calc(var(--nav-height) + var(--safe-bottom));
 }
 
 #root {
@@ -38,4 +45,10 @@ input, button, textarea {
 
 button {
   cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  color: var(--accent);
 }
