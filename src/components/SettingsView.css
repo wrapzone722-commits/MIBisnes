@@ -60,3 +60,93 @@
 .settings-view__clear:hover {
   background: rgba(248, 113, 113, 0.25);
 }
+
+.settings-view__report-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.settings-view__input--month {
+  max-width: 160px;
+}
+
+.settings-view__download {
+  padding: 10px 16px;
+  background: var(--teal);
+  color: var(--bg);
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.settings-view__download:hover {
+  background: var(--accent-hover);
+}
+
+.settings-view__auth-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.settings-view__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.settings-view__auth-name {
+  margin: 0;
+  font-weight: 600;
+}
+
+.settings-view__auth-username,
+.settings-view__auth-role {
+  margin: 2px 0 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.settings-view__logout {
+  margin-top: 8px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.settings-view__logout:hover {
+  color: var(--expense);
+  border-color: var(--expense);
+}
+
+.settings-view__users {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.settings-view__user-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.settings-view__user-row:last-child {
+  border-bottom: none;
+}
+
+.settings-view__role-select {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 10px;
+  color: var(--text);
+  font-size: 0.9rem;
+}

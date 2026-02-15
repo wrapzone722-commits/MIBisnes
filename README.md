@@ -10,6 +10,8 @@
 
 Данные хранятся в браузере (localStorage).
 
+**Запуск внутри Telegram:** приложение можно открывать как Mini App из бота. Инструкция — в [TELEGRAM_BOT_SETUP.md](TELEGRAM_BOT_SETUP.md).
+
 ## Репозиторий (GitHub)
 
 - HTTPS: `https://github.com/wrapzone722-commits/MIBisnes.git`

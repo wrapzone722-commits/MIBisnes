@@ -139,6 +139,13 @@
   color: var(--teal);
 }
 
+.add-car-form__recalc {
+  margin: 8px 0 0;
+  font-size: 0.9rem;
+  color: var(--teal);
+  font-weight: 600;
+}
+
 .add-car-form input {
   background: var(--bg);
   border: 1px solid var(--border);

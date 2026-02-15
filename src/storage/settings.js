@@ -4,6 +4,7 @@ const DEFAULTS = {
   userName: '',
   currency: '₽',
   cardDiscountPercent: 10,
+  telegramBotName: '',
 }
 
 export function loadSettings() {

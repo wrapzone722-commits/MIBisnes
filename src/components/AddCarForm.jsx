@@ -104,6 +104,11 @@ export function AddCarForm({ onSubmit }) {
               Безнал (−{settings.cardDiscountPercent}%)
             </label>
           </div>
+          {paymentType === 'card' && price !== '' && Number(price) >= 0 && (
+            <p className="add-car-form__recalc">
+              Сумма к учёту: {formatMoney(Number(price) * (1 - (settings.cardDiscountPercent || 0) / 100))} {currency}
+            </p>
+          )}
         </div>
         <div className="add-car-form__photo">
           <span className="add-car-form__photo-label">Фото работы:</span>
@@ -145,4 +150,8 @@ export function AddCarForm({ onSubmit }) {
       </div>
     </form>
   )
+}
+
+function formatMoney(n) {
+  return new Intl.NumberFormat('ru-RU').format(Math.round(n))
 }

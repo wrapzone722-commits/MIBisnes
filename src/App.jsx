@@ -7,6 +7,7 @@ import { HistoryView } from './components/HistoryView'
 import { SettingsView } from './components/SettingsView'
 import { ProfileView } from './components/ProfileView'
 import { useSettings } from './context/SettingsContext'
+import { useAuth } from './context/AuthContext'
 import { loadCars, saveCars } from './storage'
 import './App.css'
 
@@ -17,6 +18,7 @@ function formatDate(d) {
 
 export default function App() {
   const { settings } = useSettings()
+  const { user, canEdit } = useAuth()
   const [cars, setCars] = useState([])
   const [screen, setScreen] = useState('home')
   const [tab, setTab] = useState('all')
@@ -38,6 +40,7 @@ export default function App() {
       paymentType: paymentType === 'card' ? 'card' : 'cash',
       phone: (phone || '').trim(),
       image: image || null,
+      date: new Date().toISOString().slice(0, 10),
       expenses: [],
     }])
   }
@@ -77,8 +80,8 @@ export default function App() {
     <div className="app">
       <header className="header">
         <div className="header__left">
-          <h1>{settings.userName ? `Привет, ${settings.userName}!` : 'Привет!'}</h1>
-          <p>{formatDate(new Date())}</p>
+          <h1>{settings.userName ? `Привет, ${settings.userName}!` : user ? `Привет, ${user.firstName}!` : 'Привет!'}</h1>
+          <p>{formatDate(new Date())}{user && !settings.userName ? ` · ${user.username ? `@${user.username}` : ''}` : ''}</p>
         </div>
         <button type="button" className="header__menu" aria-label="Меню">
           <svg viewBox="0 0 24 24" fill="currentColor">
@@ -98,12 +101,13 @@ export default function App() {
               Все авто
             </button>
           </div>
-          <AddCarForm onSubmit={addCar} />
+          {canEdit && <AddCarForm onSubmit={addCar} />}
           <div className="cars">
             {filteredCars.map(car => (
               <CarCard
                 key={car.id}
                 car={car}
+                canEdit={canEdit}
                 onAddExpense={addExpense}
                 onRemoveExpense={removeExpense}
                 onRemoveCar={removeCar}
@@ -119,7 +123,7 @@ export default function App() {
 
         {/* Настройки */}
         <section className={`screen ${screen === 'settings' ? 'screen--active' : ''}`}>
-          <SettingsView onClearData={() => { setCars([]); saveCars([]) }} />
+          <SettingsView cars={cars} onClearData={() => { setCars([]); saveCars([]) }} />
         </section>
 
         {/* Итоги */}

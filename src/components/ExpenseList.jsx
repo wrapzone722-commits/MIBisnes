@@ -1,6 +1,6 @@
 import './ExpenseList.css'
 
-export function ExpenseList({ expenses, onRemove, currency = '₽' }) {
+export function ExpenseList({ expenses, onRemove, currency = '₽', canEdit = true }) {
   if (!expenses.length) return null
 
   return (
@@ -14,14 +14,16 @@ export function ExpenseList({ expenses, onRemove, currency = '₽' }) {
               {exp.contractor && <span className="expense-list__contractor">Подрядчик: {exp.contractor}</span>}
             </span>
           )}
-          <button
-            type="button"
-            className="expense-list__remove"
-            onClick={() => onRemove(exp.id)}
-            title="Удалить"
-          >
-            ×
-          </button>
+          {canEdit && (
+            <button
+              type="button"
+              className="expense-list__remove"
+              onClick={() => onRemove(exp.id)}
+              title="Удалить"
+            >
+              ×
+            </button>
+          )}
         </li>
       ))}
     </ul>

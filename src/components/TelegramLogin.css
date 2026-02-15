@@ -1,0 +1,9 @@
+.telegram-login-widget {
+  min-height: 44px;
+}
+
+.telegram-login-hint {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+}

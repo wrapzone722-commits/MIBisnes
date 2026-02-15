@@ -10,7 +10,7 @@ function getEffectivePrice(car, cardDiscountPercent) {
   return car.price * (1 - percent / 100)
 }
 
-export function CarCard({ car, onAddExpense, onRemoveExpense, onRemoveCar }) {
+export function CarCard({ car, canEdit = true, onAddExpense, onRemoveExpense, onRemoveCar }) {
   const { settings } = useSettings()
   const [expanded, setExpanded] = useState(false)
   const [showForm, setShowForm] = useState(false)
@@ -34,18 +34,20 @@ export function CarCard({ car, onAddExpense, onRemoveExpense, onRemoveCar }) {
             <CarIcon />
           )}
         </div>
-        <button
-          type="button"
-          className="car-card__remove"
-          onClick={() => onRemoveCar(car.id)}
-          title="Удалить авто"
-        >
-          ×
-        </button>
+        {canEdit && (
+          <button
+            type="button"
+            className="car-card__remove"
+            onClick={() => onRemoveCar(car.id)}
+            title="Удалить авто"
+          >
+            ×
+          </button>
+        )}
       </div>
       <h3 className="car-card__title">{car.brand} {car.model}</h3>
       <p className="car-card__subtitle">
-        {isCard ? `Безнал −${settings.cardDiscountPercent}%` : 'Нал'}
+        {isCard ? 'Безнал' : 'Нал'}
         {car.phone && <> · {formatPhone(car.phone)}</>}
         {' · '}{car.expenses.length} {car.expenses.length === 1 ? 'расход' : 'расходов'} · Остаток {formatMoney(balance)} {currency}
       </p>
@@ -68,8 +70,9 @@ export function CarCard({ car, onAddExpense, onRemoveExpense, onRemoveCar }) {
             expenses={car.expenses}
             onRemove={id => onRemoveExpense(car.id, id)}
             currency={currency}
+            canEdit={canEdit}
           />
-          {showForm ? (
+          {canEdit && (showForm ? (
             <AddExpenseForm
               onSubmit={(amount, comment, contractor) => {
                 onAddExpense(car.id, amount, comment, contractor)
@@ -85,7 +88,7 @@ export function CarCard({ car, onAddExpense, onRemoveExpense, onRemoveCar }) {
             >
               + Добавить расход
             </button>
-          )}
+          ))}
         </div>
       )}
     </article>
