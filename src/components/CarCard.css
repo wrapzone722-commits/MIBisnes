@@ -1,0 +1,80 @@
+.car-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.car-card__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.car-card__title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.car-card__price {
+  margin: 0.25rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.car-card__remove {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 0.25rem;
+}
+
+.car-card__remove:hover {
+  color: var(--danger);
+}
+
+.car-card__totals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: var(--bg);
+  border-radius: 8px;
+}
+
+.total {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.total--income {
+  color: var(--income);
+}
+
+.total--expense {
+  color: var(--expense);
+}
+
+.total--balance {
+  color: var(--balance);
+}
+
+.car-card__add-expense {
+  width: 100%;
+  padding: 0.6rem;
+  background: var(--surface-hover);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.car-card__add-expense:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}

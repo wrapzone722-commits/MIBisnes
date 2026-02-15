@@ -1,0 +1,59 @@
+.add-expense-form {
+  display: grid;
+  grid-template-columns: 1fr 2fr auto;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background: var(--bg);
+  border-radius: 8px;
+}
+
+@media (max-width: 500px) {
+  .add-expense-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+.add-expense-form input {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+}
+
+.add-expense-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.add-expense-form__actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.add-expense-form button[type="submit"] {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  font-weight: 600;
+}
+
+.add-expense-form button[type="submit"]:hover {
+  background: var(--accent-hover);
+}
+
+.add-expense-form button[type="button"] {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  color: var(--text-muted);
+}
+
+.add-expense-form button[type="button"]:hover {
+  border-color: var(--text-muted);
+  color: var(--text);
+}

@@ -1,0 +1,57 @@
+.summary {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.summary h2 {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.summary__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 500px) {
+  .summary__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.summary__item {
+  padding: 0.75rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.summary__item--income {
+  background: rgba(63, 185, 80, 0.15);
+  color: var(--income);
+}
+
+.summary__item--expense {
+  background: rgba(248, 81, 73, 0.15);
+  color: var(--expense);
+}
+
+.summary__item--balance {
+  background: rgba(88, 166, 255, 0.15);
+  color: var(--balance);
+}
+
+.summary__label {
+  display: block;
+  font-size: 0.85rem;
+  opacity: 0.9;
+  margin-bottom: 0.25rem;
+}
+
+.summary__value {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
