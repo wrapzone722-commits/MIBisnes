@@ -10,6 +10,7 @@
   gap: 0.75rem;
   padding: 0.5rem 0;
   border-bottom: 1px solid var(--border);
+  min-width: 0;
 }
 
 .expense-list__item:last-child {
@@ -18,20 +19,26 @@
 
 .expense-list__amount {
   font-weight: 600;
-  min-width: 90px;
+  min-width: 70px;
+  flex-shrink: 0;
   color: var(--expense);
 }
 
 .expense-list__meta {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 2px;
+  overflow: hidden;
 }
 
 .expense-list__comment {
   color: var(--text-muted);
   font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
 }
 
 .expense-list__contractor {

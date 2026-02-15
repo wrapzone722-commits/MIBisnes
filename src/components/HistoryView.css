@@ -1,5 +1,7 @@
 .history-view {
   padding-bottom: 24px;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .history-view--empty {
@@ -34,23 +36,32 @@
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 4px 12px;
+  min-width: 0;
 }
 
 .history-view__car {
   font-weight: 600;
   font-size: 0.95rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
 }
 
 .history-view__amount {
   color: var(--expense);
   font-weight: 600;
   text-align: right;
+  flex-shrink: 0;
 }
 
 .history-view__comment {
   grid-column: span 2;
   font-size: 0.85rem;
   color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
 }
 
 .history-view__date {

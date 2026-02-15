@@ -3,6 +3,7 @@
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 14px;
+  min-width: 0;
 }
 
 .add-car-form h2 {
@@ -15,6 +16,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
+  min-width: 0;
+}
+
+.add-car-form .row input {
+  min-width: 0;
+  width: 100%;
 }
 
 .add-car-form .row input:nth-child(3),
@@ -104,6 +111,11 @@
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
+  min-width: 0;
+}
+
+.add-car-form__payment-option {
+  flex-shrink: 0;
 }
 
 .add-car-form__payment-label {

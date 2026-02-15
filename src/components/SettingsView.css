@@ -1,5 +1,7 @@
 .settings-view {
   padding-bottom: 24px;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .settings-view__title {
@@ -27,7 +29,8 @@
 
 .settings-view__input {
   width: 100%;
-  max-width: 280px;
+  max-width: min(280px, 100%);
+  min-width: 0;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 10px;
@@ -134,8 +137,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 8px;
   padding: 8px 0;
   border-bottom: 1px solid var(--border);
+  min-width: 0;
+}
+
+.settings-view__user-row > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
 }
 
 .settings-view__user-row:last-child {
@@ -149,4 +161,5 @@
   padding: 6px 10px;
   color: var(--text);
   font-size: 0.9rem;
+  flex-shrink: 0;
 }

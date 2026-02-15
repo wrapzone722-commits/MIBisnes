@@ -7,14 +7,20 @@
   padding: 10px;
   background: var(--bg);
   border-radius: 10px;
+  min-width: 0;
 }
 
 .add-expense-form__actions {
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
+  min-width: 0;
 }
 
 .add-expense-form input {
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;

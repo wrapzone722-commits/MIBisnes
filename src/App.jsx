@@ -6,6 +6,7 @@ import { BottomNav } from './components/BottomNav'
 import { HistoryView } from './components/HistoryView'
 import { SettingsView } from './components/SettingsView'
 import { ProfileView } from './components/ProfileView'
+import { AboutView } from './components/AboutView'
 import { useSettings } from './context/SettingsContext'
 import { useAuth } from './context/AuthContext'
 import { loadCars, saveCars } from './storage'
@@ -129,6 +130,11 @@ export default function App() {
         {/* Итоги */}
         <section className={`screen ${screen === 'profile' ? 'screen--active' : ''}`}>
           <ProfileView cars={cars} />
+        </section>
+
+        {/* О приложении */}
+        <section className={`screen ${screen === 'about' ? 'screen--active' : ''}`}>
+          <AboutView />
         </section>
       </main>
 
