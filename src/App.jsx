@@ -6,6 +6,7 @@ import { BottomNav } from './components/BottomNav'
 import { HistoryView } from './components/HistoryView'
 import { SettingsView } from './components/SettingsView'
 import { ProfileView } from './components/ProfileView'
+import { useSettings } from './context/SettingsContext'
 import { loadCars, saveCars } from './storage'
 import './App.css'
 
@@ -15,6 +16,7 @@ function formatDate(d) {
 }
 
 export default function App() {
+  const { settings } = useSettings()
   const [cars, setCars] = useState([])
   const [screen, setScreen] = useState('home')
   const [tab, setTab] = useState('all')
@@ -27,17 +29,20 @@ export default function App() {
     if (cars.length) saveCars(cars)
   }, [cars])
 
-  const addCar = (brand, model, price) => {
+  const addCar = (brand, model, price, paymentType = 'cash', phone = '', image = null) => {
     setCars(prev => [...prev, {
       id: crypto.randomUUID(),
       brand: brand.trim(),
       model: model.trim(),
       price: Number(price) || 0,
+      paymentType: paymentType === 'card' ? 'card' : 'cash',
+      phone: (phone || '').trim(),
+      image: image || null,
       expenses: [],
     }])
   }
 
-  const addExpense = (carId, amount, comment) => {
+  const addExpense = (carId, amount, comment, contractor = '') => {
     setCars(prev => prev.map(car =>
       car.id === carId
         ? {
@@ -46,6 +51,7 @@ export default function App() {
               id: crypto.randomUUID(),
               amount: Number(amount) || 0,
               comment: (comment || '').trim(),
+              contractor: (contractor || '').trim(),
               date: new Date().toISOString(),
             }],
           }
@@ -71,7 +77,7 @@ export default function App() {
     <div className="app">
       <header className="header">
         <div className="header__left">
-          <h1>Привет!</h1>
+          <h1>{settings.userName ? `Привет, ${settings.userName}!` : 'Привет!'}</h1>
           <p>{formatDate(new Date())}</p>
         </div>
         <button type="button" className="header__menu" aria-label="Меню">
@@ -113,7 +119,7 @@ export default function App() {
 
         {/* Настройки */}
         <section className={`screen ${screen === 'settings' ? 'screen--active' : ''}`}>
-          <SettingsView />
+          <SettingsView onClearData={() => { setCars([]); saveCars([]) }} />
         </section>
 
         {/* Итоги */}

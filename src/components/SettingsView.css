@@ -4,12 +4,59 @@
 
 .settings-view__title {
   font-size: 1.1rem;
-  margin: 0 0 12px;
+  margin: 0 0 16px;
   font-weight: 600;
 }
 
-.settings-view__text {
-  color: var(--text-muted);
+.settings-view__section {
+  margin-bottom: 20px;
+}
+
+.settings-view__section--danger {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.settings-view__label {
+  display: block;
   font-size: 0.9rem;
-  margin: 0;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.settings-view__input {
+  width: 100%;
+  max-width: 280px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.settings-view__input:focus {
+  outline: none;
+  border-color: var(--teal);
+}
+
+.settings-view__hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 6px 0 0;
+}
+
+.settings-view__clear {
+  padding: 10px 16px;
+  background: rgba(248, 113, 113, 0.15);
+  color: var(--expense);
+  border: 1px solid rgba(248, 113, 113, 0.4);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.settings-view__clear:hover {
+  background: rgba(248, 113, 113, 0.25);
 }

@@ -32,6 +32,17 @@
   align-items: center;
   justify-content: center;
   color: var(--text-muted);
+  overflow: hidden;
+}
+
+.car-card__icon--photo {
+  padding: 0;
+}
+
+.car-card__thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .car-card--highlight .car-card__icon {
@@ -84,6 +95,20 @@
 .car-card__totals .total--income { color: var(--income); }
 .car-card__totals .total--expense { color: var(--expense); }
 .car-card__totals .total--balance { color: var(--balance); font-weight: 600; }
+
+.car-card__phone {
+  margin: 0 0 8px;
+  font-size: 0.9rem;
+}
+
+.car-card__phone a {
+  color: var(--teal);
+  text-decoration: none;
+}
+
+.car-card__phone a:hover {
+  text-decoration: underline;
+}
 
 /* Детали (расходы) внутри карточки — показываются при раскрытии */
 .car-card__details {

@@ -18,8 +18,125 @@
 }
 
 .add-car-form .row input:nth-child(3),
+.add-car-form .row .add-car-form__phone,
+.add-car-form .row .add-car-form__payment,
+.add-car-form .row .add-car-form__photo,
 .add-car-form .row button {
   grid-column: span 2;
+}
+
+.add-car-form__file {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.add-car-form__photo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.add-car-form__photo-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.add-car-form__photo-area {
+  position: relative;
+  min-height: 80px;
+  border-radius: 10px;
+  background: var(--bg);
+  border: 1px dashed var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-car-form__photo-preview {
+  width: 100%;
+  max-height: 120px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.add-car-form__photo-remove {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-car-form__photo-remove:hover {
+  color: var(--expense);
+  background: rgba(248, 113, 113, 0.2);
+}
+
+.add-car-form__photo-btn {
+  padding: 12px 16px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  border-radius: 8px;
+}
+
+.add-car-form__photo-btn:hover {
+  color: var(--teal);
+}
+
+.add-car-form__photo-loading {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.add-car-form__payment {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.add-car-form__payment-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.add-car-form__payment-options {
+  display: flex;
+  gap: 8px;
+}
+
+.add-car-form__payment-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.add-car-form__payment-option input {
+  display: none;
+}
+
+.add-car-form__payment-option--active {
+  border-color: var(--teal);
+  background: rgba(70, 240, 210, 0.15);
+  color: var(--teal);
 }
 
 .add-car-form input {

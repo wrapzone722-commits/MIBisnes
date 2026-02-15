@@ -1,6 +1,9 @@
+import { useSettings } from '../context/SettingsContext'
 import './HistoryView.css'
 
 export function HistoryView({ cars }) {
+  const { settings } = useSettings()
+  const currency = settings.currency || '₽'
   const items = cars.flatMap(car =>
     car.expenses.map(exp => ({
       id: exp.id,
@@ -28,7 +31,7 @@ export function HistoryView({ cars }) {
         {items.map(item => (
           <li key={item.id} className="history-view__item">
             <span className="history-view__car">{item.carName}</span>
-            <span className="history-view__amount">−{formatMoney(item.amount)} ₽</span>
+            <span className="history-view__amount">−{formatMoney(item.amount)} {currency}</span>
             {item.comment && <span className="history-view__comment">{item.comment}</span>}
             <span className="history-view__date">{formatDate(item.date)}</span>
           </li>
